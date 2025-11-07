@@ -33,7 +33,10 @@ const page = () => {
           });
         },
         (error) => {
-          console.error("Error obtaining location", error);
+      console.error("Error obtaining location", {
+      code: error.code,
+      message: error.message,
+    });
         }
       );
     };
