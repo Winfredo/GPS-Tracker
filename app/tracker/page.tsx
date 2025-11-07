@@ -4,6 +4,7 @@ import { db } from "@/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { FaLocationDot } from "react-icons/fa6";
 import Image from "next/image";
+import Link from "next/link";
 
 type Coords = {
   lat: number | null;
@@ -44,9 +45,24 @@ const page = () => {
 
   return (
     <div className="w-full h-screen flex justify-center gap-7 items-center">
-      <div className="w-[35%] h-[50%] rounded-lg overflow-hidden bg-white relative">
-        <Image src="/images/map.jpeg" alt="Map" fill className="object-cover" />
+      <div className="w-[35%] h-[50%] rounded-lg overflow-hidden relative group cursor-pointer">
+        <Link href="/view" target="_blank" rel="noopener noreferrer">
+          <div>
+            <Image
+              src="/images/map.jpeg"
+              alt="Map"
+              fill
+              className="object-cover group-hover:scale-105 transition-all duration-300"
+            />
+            <div className="absolute inset-0 bg-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <p className="text-gray-800 font-semibold text-lg">
+                Click here to view map
+              </p>
+            </div>
+          </div>
+        </Link>
       </div>
+
       <div className="w-[17%] h-[40%]  flex flex-col items-left bg-gray-200 rounded-lg shadow-md p-6">
         <h2 className="text-2xl font-bold mb-16">
           <FaLocationDot className="inline-block" />
@@ -58,9 +74,9 @@ const page = () => {
         </p>
         {coords.lat && coords.lon ? (
           <div className="text-[20px]">
-            <p className="font-bold">Latitude</p>{" "}
-            <p>{coords.lat.toFixed(4)} </p>
-            <p className="font-bold mt-5">Longitude</p>{" "}
+            <p className="font-bold">Latitude</p>
+            <p>{coords.lat.toFixed(4)}</p>
+            <p className="font-bold mt-5">Longitude</p>
             <p>{coords.lon.toFixed(4)}</p>
           </div>
         ) : (
