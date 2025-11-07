@@ -44,8 +44,11 @@ const page = () => {
   }, []);
 
   return (
-    <div className="w-full h-screen flex justify-center gap-7 items-center">
-      <div className="w-[35%] h-[50%] rounded-lg overflow-hidden relative group cursor-pointer">
+    <div className="w-full h-screen flex flex-col md:flex-row justify-center gap-7 items-center">
+      <h2 className="text-[20px] font-bold md:hidden">
+        Click on the map below.
+      </h2>
+      <div className="w-[80%] h-[20%] md:w-[49%] md:h-[50%] lg:w-[35%] lg:h-[50%] rounded-lg overflow-hidden relative group cursor-pointer">
         <Link href="/view" target="_blank" rel="noopener noreferrer">
           <div>
             <Image
@@ -63,20 +66,20 @@ const page = () => {
         </Link>
       </div>
 
-      <div className="w-[17%] h-[40%]  flex flex-col items-left bg-gray-200 rounded-lg shadow-md p-6">
-        <h2 className="text-2xl font-bold mb-16">
+      <div className="w-[80%] md:w-[30%] md:h-[40%] lg:w-[17%] lg:h-[40%] flex flex-col items-left bg-gray-200 rounded-lg shadow-md p-6">
+        <h2 className="text-2xl font-bold mb-10">
           <FaLocationDot className="inline-block" />
           GPS Tracker
         </h2>
-        <p className="text-[20px]">Status</p>
+        <p className="text-[20px] md:text-[23px] font-bold">Status</p>
         <p className="font-bold mb-5">
           {coords.lat && coords.lon ? "Online" : "Offline"}
         </p>
         {coords.lat && coords.lon ? (
           <div className="text-[20px]">
-            <p className="font-bold">Latitude</p>
+            <p className="font-bold md:text-[23px]">Latitude</p>
             <p>{coords.lat.toFixed(4)}</p>
-            <p className="font-bold mt-5">Longitude</p>
+            <p className="font-bold mt-5 md:text-[23px]">Longitude</p>
             <p>{coords.lon.toFixed(4)}</p>
           </div>
         ) : (
