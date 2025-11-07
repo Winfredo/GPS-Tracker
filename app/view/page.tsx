@@ -59,7 +59,7 @@ export default function Page() {
             attribution="© OpenStreetMap contributors"
           />
           <Marker position={[coords.lat, coords.lon]} icon={icon}>
-            <Popup>Device 1 - Live Location</Popup>
+            <Popup>Live Location</Popup>
           </Marker>
         </MapContainer>
       ) : (
