@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import { FaLocationDot } from "react-icons/fa6";
 
 export default function HomePage() {
   return (
@@ -26,7 +27,7 @@ export default function HomePage() {
             href="/tracker"
             className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-lg transition"
           >
-            🚗 Go to Tracker
+            <FaLocationDot className="inline-block text-[20px] mr-1" /> Go to Tracker
           </Link>
         </div>
       </div>
